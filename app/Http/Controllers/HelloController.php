@@ -17,16 +17,18 @@ $body = '</head><body>';
 $end = '</body></html>';
 
 // タグ生成用メソッド
-function tag($tag, $txt) {
-    return "<{$tag}>" . $txt . "</{$tag}>";
+function tag($tag, $txt)
+{
+  return "<{$tag}>" . $txt . "</{$tag}>";
 }
 
 // コントローラー
 class HelloController extends Controller
 {
-    // アクション
-    public function index() {
-        return <<<EOF
+  // アクション
+  public function index()
+  {
+    return <<<EOF
         <html>
         <head>
             <title>Hello/Index</title>
@@ -41,10 +43,11 @@ class HelloController extends Controller
         </body>
         </html>
         EOF;
-    }
+  }
 
-    public function index_2($id='no name', $pass='unknown') {
-        return <<<EOF
+  public function index_2($id = 'no name', $pass = 'unknown')
+  {
+    return <<<EOF
         <html>
         <head>
             <title>Hello/Index</title>
@@ -61,31 +64,33 @@ class HelloController extends Controller
         </body>
         </html>
         EOF;
-    }
+  }
 
-    public function index_3() {
-        // グローバル変数呼び出し
-        global $head, $style, $body, $end;
+  public function index_3()
+  {
+    // グローバル変数呼び出し
+    global $head, $style, $body, $end;
 
-        // . で結合
-        // 遷移先のページリンクを定義
-        $html = $head . tag('title', 'Hello/Index') . $style . 
-        $body
-        . tag('h1', 'Index') . tag('p', 'これはIndexページです')
-        . '<a href="/hello_3/other">otherページへ遷移</a>'
-        . $end;
+    // . で結合
+    // 遷移先のページリンクを定義
+    $html = $head . tag('title', 'Hello/Index') . $style .
+      $body
+      . tag('h1', 'Index') . tag('p', 'これはIndexページです')
+      . '<a href="/hello_3/other">otherページへ遷移</a>'
+      . $end;
 
-        return $html;
-    }
+    return $html;
+  }
 
-    public function other() {
-        global $head, $style, $body, $end;
+  public function other()
+  {
+    global $head, $style, $body, $end;
 
-        $html = $head . tag('title', 'Hello/Other') . $style . 
-        $body
-        . tag('h1', 'Other') . tag('p', 'これはOtherページです')
-        . $end;
+    $html = $head . tag('title', 'Hello/Other') . $style .
+      $body
+      . tag('h1', 'Other') . tag('p', 'これはOtherページです')
+      . $end;
 
-        return $html;
-    }
+    return $html;
+  }
 }

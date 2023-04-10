@@ -73,7 +73,14 @@ php -r "unlink('composer-setup.php');"
 - ```$ php artisan serve```
 - ```C:\Users\sonob\github\php\verify-laravel-app>php artisan serve```
 
-### 必要なVsCode拡張機能
+### あると便利なVsCode拡張機能
 - Laravel Snippets
 - PHP Debug
 - PHP Intelephense
+- Laravel Blade Snippets
+- Laravel Blade Spacer
+- Laravel Artisan
+- Laravel Extra Intellisense
+- Laravel goto Controller
+- Laravel goto View
+- DotENV
