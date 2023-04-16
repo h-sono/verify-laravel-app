@@ -2,77 +2,31 @@
 
 use Illuminate\Support\Facades\Route;
 
+// ルーティング
+
 // コントローラー：HelloControllerのアクション：indexメソッドを使用するルート
-Route::get('hello', 'App\Http\Controllers\HelloController@index');
+// Route::get('hello', 'App\Http\Controllers\HelloController@index');
 // {id?}：?で任意のパラメータ
-Route::get('hello_2/{id?}/{pass?}', 'App\Http\Controllers\HelloController@index_2');
-Route::get('hello_3', 'App\Http\Controllers\HelloController@index_3');
-Route::get('hello_3/other', 'App\Http\Controllers\HelloController@other');
-
-// Route::get('/', function () {
-//     return view('welcome');
+// Route::get('hello_2/{id?}/{pass?}', 'App\Http\Controllers\HelloController@index_2');
+// Route::get('hello_3', 'App\Http\Controllers\HelloController@index_3');
+// Route::get('hello_3/other', 'App\Http\Controllers\HelloController@other');
+// シングルアクション
+// Route::get('hello_4', 'App\Http\Controllers\HelloController');
+// リクエスト/レスポンス
+// Route::get('hello_5', 'App\Http\Controllers\HelloController@index');
+// テンプレート使用(resources\views\hello\index.php読み取り)
+// Route::get('hello_tmp', function () {
+//   return view('hello.index');
 // });
 
-// $html = <<<EOF
-// <html>
-// <head>
-// <title>Hello</title>
-// <style>
-// body {font-size:16pt; color:#999;}
-// h1 {font-size:100pt; text-align:right; color:#eee; margin:-40px 0px -50px 0px;}
-// </style>
-// </head>
-// <body>
-//     <h1>Hello</h1>
-//     <p>This is sample page.</p>
-//     <p>サンプルページ</p>
-// </body>
-// </html>
-// EOF;
+// コントローラーでテンプレート使用(ルートパラメータをテンプレートに渡す)
+// Route::get('hello_tmp_2/{id?}', 'App\Http\Controllers\HelloController@index');
 
-// Route::get('hello', function () use ($html) {
-//     return $html;
-// });
+// コントローラーでテンプレート使用(クエリパラメータをテンプレートに渡す)
+// http://127.0.0.1:8000/hello_tmp_3/?id=test_id などでアクセス
+// Route::get('hello_tmp_3', 'App\Http\Controllers\HelloController@index');
 
-// Route::get('hello/{id}/{pass}', function ($id, $pass) {
-// $html = <<<EOF
-// <html>
-// <head>
-// <title>Hello</title>
-// <style>
-// body {font-size:16pt; color:#999;}
-// h1 {font-size:100pt; text-align:right; color:#eee; margin:-40px 0px -50px 0px;}
-// </style>
-// </head>
-// <body>
-//     <h1>Hello</h1>
-//     <p>id:{$id}</p>
-//     <p>pass:{$pass}</p>
-//     <p>サンプルページ</p>
-// </body>
-// </html>
-// EOF;
-
-//     return $html;
-// });
-
-// Route::get('hello/{msg?}', function ($msg='no message') {
-// $html = <<<EOF
-// <html>
-// <head>
-// <title>Hello</title>
-// <style>
-// body {font-size:16pt; color:#999;}
-// h1 {font-size:100pt; text-align:right; color:#eee; margin:-40px 0px -50px 0px;}
-// </style>
-// </head>
-// <body>
-//     <h1>Hello</h1>
-//     <p>{$msg}</p>
-//     <p>サンプルページ</p>
-// </body>
-// </html>
-// EOF;
-
-//     return $html;
-// });
+// テンプレートエンジン：Bladeを使用
+Route::get('hello_blade', 'App\Http\Controllers\HelloController@index');
+// POST
+Route::post('hello_blade', 'App\Http\Controllers\HelloController@post');
