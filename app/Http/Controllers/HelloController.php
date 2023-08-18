@@ -12,21 +12,17 @@ class HelloController extends Controller
 
   public function index(Request $request)
   {
-    return view('hello.index');
+    return view('hello.index', ['msg' => 'フォームを入力: ']);
   }
 
-  // テンプレートエンジン：Bladeを使用
-  // public function index()
-  // {
-  //   $data = ['one', 'two', 'three', 'four', 'five'];
-  //   return view('hello.index', ['data' => $data]);
-  // }
-  // formのPOSTメソッド 
-  // public function post(Request $request)
-  // {
-  //   // name="msg"のinputフィールドから値を取り出す。
-  //   $data = ['msg' => $request->msg];
-  //   return view('hello.index', $data);
-  // }
-
+  public function post(Request $request)
+  {
+    $validate_rule = [
+      'name' => 'required',
+      'mail' => 'email',
+      'age' => 'numeric | between:0,150',
+    ];
+    $this->validate($request, $validate_rule);
+    return view('hello.index', ['msg' => '正しく入力されました!']);
+  }
 }
