@@ -10,15 +10,9 @@ class HelloController extends Controller
 {
   // アクション
 
-  public function index()
+  public function index(Request $request)
   {
-    $data = [
-      ['name' => '山田たろう', 'mail' => 'taro@yamada'],
-      ['name' => '田中はなこ', 'mail' => 'tanaka@hanako'],
-      ['name' => '鈴木ちさこ', 'mail' => 'suzuki@tisako']
-    ];
-
-    return view('hello.index', ['data' => $data]);
+    return view('hello.index');
   }
 
   // テンプレートエンジン：Bladeを使用

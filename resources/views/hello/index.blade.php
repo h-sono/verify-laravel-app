@@ -6,9 +6,8 @@
 @endsection
 @section('content')
   <p>ここが本文のコンテンツです。</p>
-  <ul>
-    @each('components.item', $data, 'item')
-  </ul>
+  <p>これが、<middleware>google.com</middleware>へのリンクです。</p>
+  <p>これが、<middleware>yahoo.co.jp</middleware>へのリンクです。</p>
 @endsection
 @section('footer')
   copyright 2023 sonobe
